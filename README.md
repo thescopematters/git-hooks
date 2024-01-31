@@ -6,7 +6,6 @@ We are going to resolve two major problem statements throughout the organisation
 2. Commit messages inside each branch should be relevent and informative for other devs or client
 
 
-
 # Steps how to install the git hooks globally on your system
 
 1. Run following command to install the git hooks globally on your system
@@ -17,25 +16,26 @@ We are going to resolve two major problem statements throughout the organisation
 # Branch Names standard formats, Commit message limits
 
 1. Default branch names allowed
-main
-master
-stage
-dev
-hotfix
-bug
-uat
-qa
+- main
+- master
+- stage
+- dev
+- hotfix
+- bug
+- uat
+- qa
+- design
 
 2. All feature branches should have a standard format, examples
 
 Note: Only _ (underscore) and  . (dot) special characters are allowed in the feature branch names
 
-feature/abc
-feature/abc_123
-feature/abc_v1
-feature/abc_xyz_v2
-feature/abc_1.9
-feature/abc_v1.2
+- feature/abc
+- feature/abc_123
+- feature/abc_v1
+- feature/abc_xyz_v2
+- feature/abc_1.9
+- feature/abc_v1.2
 
 3. Branch Names Limits
 
@@ -49,3 +49,11 @@ feature/abc_v1.2
 - Maximum length of commit message should be 500 characters
 
 
+# How to reset the setup of hooks
+1. Git clone or pull latest changes from this "git-hooks" repo
+2. Run following commands to setup hooks
+> sudo chmod +x initial-settings.sh && sudo bash initial-settings.sh
+3. Navigate to your current project's repo and run following command
+> sudo rm .git/hooks/commit-msg && sudo rm .git/hooks/pre-commit
+4. Re-initialise the project by running the following command and you are done
+> git init
