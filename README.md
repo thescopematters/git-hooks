@@ -23,6 +23,8 @@ stage
 dev
 hotfix
 bug
+uat
+qa
 
 2. All feature branches should have a standard format, examples
 
