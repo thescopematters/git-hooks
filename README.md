@@ -7,11 +7,11 @@ We are going to resolve two major problem statements throughout the organisation
 
 
 # Steps how to install the git hooks globally on your system
-
-1. Run following command to install the git hooks globally on your system
+1. Git clone or pull latest changes from this "git-hooks" repo
+2. Run following command to install the git hooks globally on your system
 > sudo chmod +x initial-settings.sh && sudo bash initial-settings.sh
 
-2. Run "git init" command in your current project folder and you are done.
+3. Run "git init" command in your current project folder and you are done.
 
 # Branch Names standard formats, Commit message limits
 
