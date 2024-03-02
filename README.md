@@ -16,14 +16,14 @@ To safeguard sensitive information, the .env file should be excluded from versio
 1. Git clone or pull latest changes from this "git-hooks" repo (branch: main)
 > cd git-hooks
 2. Run following command to install the git hooks globally on your local system
-> sudo chmod +x initial-settings.sh && sudo bash initial-settings.sh
+> sudo chmod +x initial-settings-linux.sh && sudo bash initial-settings-linux.sh
 3. Run "git init" command in your "Current Project Folder" and you are done.
 
 # How to reset the setup of hooks (Linux)
 1. Git clone or pull latest changes from this "git-hooks" repo (branch: main)
 > cd git-hooks
 2. Run following commands to setup hooks
-> sudo chmod +x initial-settings.sh && sudo bash initial-settings.sh
+> sudo chmod +x initial-settings-linux.sh && sudo bash initial-settings-linux.sh
 3. Navigate to your current project's repo and run following command
 > sudo rm .git/hooks/commit-msg && sudo rm .git/hooks/pre-commit && sudo rm .git/hooks/pre-push
 4. Re-initialise the project by running the following command and you are done
