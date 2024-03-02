@@ -11,19 +11,7 @@ STAGED_FILES=$(git diff --cached --name-only)
 
 # Check if the environment file is among the staged files
 if [[ $STAGED_FILES =~ $ENV_FILE ]]; then
-  echo "Warning: ($ENV_FILE) file isn't allowed to be pushed to the git server. Please exclude it from the code."
+  echo "Warning: The ($ENV_FILE) file should not be pushed to the Git server. Please ensure that it is excluded from the code."
   echo "Documentation: $git_link"
-#   echo "Are you sure you want to commit this file? (y/N)"
-#   read -r answer($ENV_FILE)
-
-  # Convert the answer to lowercase for case-insensitive comparison
-#   answer=$(tr [A-Z] [a-z] <<< "$answer")
-
-#   if [[ "$answer" != "y" ]]; then
-#     echo "Aborting commit."
-#     exit 1
-#   fi
 exit 1
 fi
-
-# Allow the commit to proceed if the environment file was not staged or the user confirmed.
