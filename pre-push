@@ -1,0 +1,44 @@
+#!/bin/bash
+
+#Git link for documentation
+git_link="http://repo.antiersolutions.com/surinder.k/git-hooks"
+
+# Get the current branch name
+branch_name=$(git symbolic-ref --short HEAD)
+
+# Define the desired pattern
+pattern="^(feature|bug)\/[a-z]+([a-z0-9]+)*([a-z]+)?(_[a-z0-9]+(\.[0-9]+)?)?$"
+
+# Define allowed branches
+allowed_branches=("master" "main" "dev" "stage" "hotfix" "bug" "uat" "qa" "design")
+
+# Check if the branch name is allowed
+if [[ " ${allowed_branches[@]} " =~ " $branch_name " ]]; then
+    exit 0
+fi
+
+# Check if the branch name matches the pattern
+if [[ ! $branch_name =~ $pattern ]]; then
+    echo "Error: Branch name '$branch_name' does not match the required pattern."
+    echo "Default branch names allowed: [${allowed_branches[@]}]"
+    echo "If you are creating a feature or bug branch, Please rename your branch to one of the following and push again:"
+    echo "
+    - feature/abc
+    - feature/abc_123
+    - feature/abc_v1
+    - bug/abc
+    - bug/abc_123
+    - bug/abc_v1
+    "
+    echo "Documentation: $git_link"
+    exit 1
+fi
+
+# Check if the branch name length is within the desired range (7 to 58)
+# branch name could be 50 characters long after feature/{50 characters length}
+branch_length=${#branch_name}
+if ((branch_length < 7 || branch_length > 58)); then
+    echo "Error: Branch name '$branch_name' length should be between 7 and 58 characters."
+    echo "Documentation: $git_link"
+    exit 1
+fi

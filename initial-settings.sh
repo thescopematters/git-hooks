@@ -12,4 +12,8 @@ sudo chmod +x "$git_templates_dir/pre-commit"
 sudo cp "$repo_dir/commit-msg" "$git_templates_dir"
 sudo chmod +x "$git_templates_dir/commit-msg"
 
+# Copy the pre-push hook to the hooks directory
+sudo cp "$repo_dir/pre-push" "$git_templates_dir"
+sudo chmod +x "$git_templates_dir/pre-push"
+
 echo "Git hooks installed successfully!"
