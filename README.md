@@ -46,19 +46,29 @@ For examples
 
 Note: Only _ (underscore) and  . (dot) special characters are allowed in the feature/bug branch names
 
-- feature/abc
-- feature/abc_123
-- feature/abc_v1
-- feature/abc_xyz_v2
-- feature/abc_1.9
-- feature/abc_v1.2
-
-- bug/abc
-- bug/abc_123
-- bug/abc_v1
-- bug/abc_xyz_v2
-- bug/abc_1.9
-- bug/abc_v1.2
+- feature/signup
+- feature/signup_validate
+- feature/signup_v1
+- feature/signup_v1.0
+- feature/signup_validate_f2a
+- feature/signup_11
+- bug/nftid_24_34
+- bug/nft_user_23_421
+- bug/login_page_error.fix_1.2
+- feature/search_bar_improvement.v2
+- bug/api_response_parsing.debug_2.0
+- bug/payment_gateway_integration_issue.debug
+- feature/user_management.enhance
+- bug/login_page_error.fix_1.2
+- feature/search_bar_improvement.v2
+- bug/api_response_parsing.debug_2.0
+- feature/data_migration_tool.develop
+- bug/report_generation_failure.investigate_3
+- feature/user_interface_redesign.prototype
+- bug/cache_invalidation_issue.resolve_patch
+- feature/notification_system.implement_v1
+- invalid_string_here ->invalid
+- feature/UserSignup ->invalid
 
 3. Branch Names Limits
 
