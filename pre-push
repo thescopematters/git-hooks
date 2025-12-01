@@ -8,7 +8,8 @@ branch_name=$(git symbolic-ref --short HEAD)
 
 # Define the desired pattern
 #pattern="^(feature|bug)\/[a-z]+([a-z0-9]+)*([a-z]+)?(_[a-z0-9]+(\.[0-9]+)?)?$"
-pattern="^(feature|bug)\/[a-z]+([a-z0-9]+)*([a-z]+)?(_[a-z0-9]+(\.[a-z0-9]+)?)*?$"
+# pattern="^(feature|bug)\/[a-z]+([a-z0-9]+)*([a-z]+)?(_[a-z0-9]+(\.[a-z0-9]+)?)*?$"
+pattern="^(feature|fix|refactor)\/[a-z]{3,}?(_[a-z0-9]+)*$"
 
 # Define allowed branches
 allowed_branches=("master" "main" "dev" "stage" "hotfix" "bug" "uat" "qa" "design")
@@ -24,28 +25,20 @@ if [[ ! $branch_name =~ $pattern ]]; then
     echo "Default branch names allowed: [${allowed_branches[@]}]"
     echo "If you are creating a feature or bug branch, Please rename your branch to one of the following and push again:"
     echo "
-    - feature/signup
-    - feature/signup_validate
-    - feature/signup_v1
-    - feature/signup_v1.0
-    - feature/signup_validate_f2a
-    - feature/signup_11
-    - bug/nftid_24_34
-    - bug/nft_user_23_421
-    - bug/login_page_error.fix_1.2
-    - feature/search_bar_improvement.v2
-    - bug/api_response_parsing.debug_2.0
-    - bug/payment_gateway_integration_issue.debug
-    - feature/user_management.enhance
-    - bug/login_page_error.fix_1.2
-    - feature/search_bar_improvement.v2
-    - bug/api_response_parsing.debug_2.0
-    - feature/data_migration_tool.develop
-    - bug/report_generation_failure.investigate_3
-    - feature/user_interface_redesign.prototype
-    - bug/cache_invalidation_issue.resolve_patch
-    - feature/notification_system.implement_v1
-    - invalid_string_here ->invalid
+    - feature/{string}
+    - feature/{string}_{string}
+    - feature/{string}_{alphanumeric}
+    - feature/{string}_{string}_{alphanumeric}
+    - feature/{string}_{alphanumeric}_{string}_{alphanumeric}
+    - refactor/{string}
+    - refactor/{string}_{string}
+    - refactor/{string}_{alphanumeric}
+    - fix/{string}
+    - fix/{string}_{string}
+    - fix/{string}_{alphanumeric}
+    - fix/{string}_{string}_{alphanumeric}
+    - fix/{string}_{alphanumeric}_{string}_{alphanumeric}
+    - invalid_branch_format ->invalid
     - feature/UserSignup ->invalid
     "
     echo "Documentation: $git_link"
