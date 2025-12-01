@@ -88,4 +88,4 @@ Note: Only _ (underscore) and  . (dot) special characters are allowed in the fea
 > git rm --cached .env
 
 ## Author
-Surinder Kumar ATR04, Prajwal Ingole ATR1030
+Surinder Kumar, Prajwal Ingole
