@@ -1,29 +1,25 @@
 #!/bin/bash
 
-# Get the current branch name
-branch_name=$(git symbolic-ref --short HEAD)
+#Git link for documentation
+git_link="http://repo.antiersolutions.com/surinder.k/git-hooks"
 
-# Define the desired pattern
-pattern="^feature/[a-z]+(_[a-z0-9]+)*(_[a-z]+)?(_[a-z0-9]+(\.[0-9]+)?)?$"
+# Define the name of the environment file you want to check
+ENV_FILE=".env"
+PACKAGE_LOCK="package-lock.json"
 
-# Define allowed branches
-allowed_branches=("master" "main" "dev" "stage" "hotfix" "bug" "uat" "qa" "design")
+# Get the list of staged files
+STAGED_FILES=$(git diff --cached --name-only)
 
-# Check if the branch name is allowed
-if [[ " ${allowed_branches[@]} " =~ " $branch_name " ]]; then
-    exit 0
+# Check if the environment file is among the staged files
+if [[ $STAGED_FILES =~ $ENV_FILE ] || [ $STAGED_FILES == $PACKAGE_LOCK ]]; then
+  echo "Warning: The ($STAGED_FILES) file should not be pushed to the Git server. Please ensure that it is excluded from the code."
+  echo "Documentation: $git_link"
+  exit 1
 fi
 
-# Check if the branch name matches the pattern
-if [[ ! $branch_name =~ $pattern ]]; then
-    echo "Error: Branch name '$branch_name' does not match the required pattern: feature/{name}*"
-    exit 1
-fi
-
-# Check if the branch name length is within the desired range (10 to 58)
-# branch name could be 50 characters long after feature/{50 characters length}
-branch_length=${#branch_name}
-if ((branch_length < 10 || branch_length > 58)); then
-    echo "Error: Branch name '$branch_name' length should be between 10 and 58 characters."
-    exit 1
+# Check if node_modules are part of the commit
+if git diff --cached --name-only | grep -q 'node_modules/'; then
+  echo "Warning: The 'node_modules/' folder should not be pushed to the Git server. Please ensure that it is excluded from the code."
+  echo "Documentation: $git_link"
+  exit 1
 fi
