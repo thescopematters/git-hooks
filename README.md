@@ -32,7 +32,8 @@ To safeguard sensitive information, the .env file should be excluded from versio
 # Branch Names standard formats, Commit message limits
 
 1. Default branch names allowed
-- main / master
+- main
+- master
 - stage
 - dev
 - hotfix
@@ -40,33 +41,40 @@ To safeguard sensitive information, the .env file should be excluded from versio
 - qa
 - design
 
-2. All branches should have a standard format, 
+2. All feature branches should have a standard format, 
 For examples
 
-Note: Only _ (underscore) are allowed in the feature/fix/refactor branch names
+Note: Only _ (underscore) and  . (dot) special characters are allowed in the feature/bug branch names
 
-- feature/{string}
-- feature/{string}_{string}
-- feature/{string}_{alphanumeric}
-- feature/{string}_{string}_{alphanumeric}
-- feature/{string}_{alphanumeric}_{string}_{alphanumeric}
-- refactor/{string}
-- refactor/{string}_{string}
-- refactor/{string}_{alphanumeric}
-- fix/{string}
-- fix/{string}_{string}
-- fix/{string}_{alphanumeric}
-- fix/{string}_{string}_{alphanumeric}
-- fix/{string}_{alphanumeric}_{string}_{alphanumeric}
-- invalid_branch_format ->invalid
+- feature/signup
+- feature/signup_validate
+- feature/signup_v1
+- feature/signup_v1.0
+- feature/signup_validate_f2a
+- feature/signup_11
+- bug/nftid_24_34
+- bug/nft_user_23_421
+- bug/login_page_error.fix_1.2
+- feature/search_bar_improvement.v2
+- bug/api_response_parsing.debug_2.0
+- bug/payment_gateway_integration_issue.debug
+- feature/user_management.enhance
+- bug/login_page_error.fix_1.2
+- feature/search_bar_improvement.v2
+- bug/api_response_parsing.debug_2.0
+- feature/data_migration_tool.develop
+- bug/report_generation_failure.investigate_3
+- feature/user_interface_redesign.prototype
+- bug/cache_invalidation_issue.resolve_patch
+- feature/notification_system.implement_v1
+- invalid_string_here ->invalid
 - feature/UserSignup ->invalid
 
 3. Branch Names Limits
 
-- Only lower case characters are allowed
-- Minimum branch name length should be 3 characters i.e feature/{3} or fix/{3} or refactor/{3}
-- Maximum branch name length could be 50 characters i.e, feature/{50} or fix/{50} or refactor/{50}
-- Allowed symbols in branch naming are: (_)
+- Minimum branch name length should be 2 characters i.e feature/{2} or bug/{2}
+- Maximum branch name length could be 50 characters i.e, feature/{50} or bug/{50}
+- Allowed symbols in branch naming are: (_) , (.)
 
 4. Commit Message Limits
 
